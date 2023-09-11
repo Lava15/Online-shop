@@ -1,0 +1,30 @@
+version: "3"
+
+networks:
+    laravel:
+
+services:
+    nginx:
+        container_name: nginx
+        image: nginx:stable-alpine
+        ports:
+            - 80:80
+            - 443:443
+        networks:
+            - laravel
+
+    php:
+        container_name: php
+        image: php:8.2-fpm-alpine
+        networks:
+            - laravel
+    mysql:
+        container_name: mysql
+        image: mysql:5.7.32
+        environment:
+            MYSQL_DATABASE: onlineshop
+            MYSQL_USER: shop
+            MYSQL_PASSWORD: secret
+            MYSQL_ROOT_PASSWORD: root
+        networks:
+            - laravel
