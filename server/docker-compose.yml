@@ -7,20 +7,23 @@ services:
     nginx:
         container_name: nginx
         build:
-            context: .
+            context: .docker
             dockerfile: nginx.dockerfile
         ports:
-            - 80:80
-            - 443:443
+            - "80:80"
+            - "443:443"
         volumes:
-            - ./src:/var/www/html
+            - ./:/var/www/html
         networks:
             - laravel
     php:
+        build:
+            context: .docker
+            dockerfile: php.dockerfile
         container_name: php
         image: php:8.2-fpm-alpine
         volumes:
-            - ./src:/var/www/html
+            - ./:/var/www/html
         networks:
             - laravel
     mysql:

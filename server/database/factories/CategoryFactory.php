@@ -12,7 +12,7 @@ class CategoryFactory extends Factory
         return [
             'name' => fake()->name,
             'description' => fake()->text,
-            'slug' => fake()->words(1, true),
+            'slug' => fake()->slug,
             'active' => fake()->boolean
         ];
     }
