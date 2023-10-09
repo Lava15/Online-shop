@@ -6,6 +6,8 @@ use App\Domain\Catalog\Enums\ProductStatus;
 use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * Class Product
@@ -54,6 +56,16 @@ class Product extends Model
         'is_active' => 'boolean',
         'status' => ProductStatus::class,
     ];
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function variants(): HasMany
+    {
+        return $this->hasMany(Variant::class);
+    }
 
     /**
      * Create a new factory instance for the model.
