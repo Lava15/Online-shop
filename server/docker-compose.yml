@@ -4,35 +4,39 @@ networks:
     laravel:
 
 services:
-    nginx:
-        container_name: nginx
-        build:
-            context: .docker
-            dockerfile: nginx.dockerfile
-        ports:
-            - "80:80"
-            - "443:443"
-        volumes:
-            - ./:/var/www/html
-        networks:
-            - laravel
+    #    nginx:
+    #        container_name: nginx
+    #        build:
+    #            context: .docker
+    #            dockerfile: nginx.dockerfile
+    #        ports:
+    #            - "80:80"
+    #            - "443:443"
+    #        volumes:
+    #            - ./:/var/www/html
+    #        networks:
+    #            - laravel
     php:
         build:
             context: .docker
             dockerfile: php.dockerfile
-        container_name: php
-        image: php:8.2-fpm-alpine
+        container_name: onlineshop
+        image: php:8.3-fpm
         volumes:
             - ./:/var/www/html
         networks:
             - laravel
-    mysql:
-        container_name: mysql
-        image: mysql:5.7.32
+    postgres:
+        container_name: postgres
+        image: 'postgres:15.2'
+        ports:
+            - "5432:5432"
+        restart: always
         environment:
-            MYSQL_DATABASE: onlineshop
-            MYSQL_USER: shop
-            MYSQL_PASSWORD: secret
-            MYSQL_ROOT_PASSWORD: root
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: onlineshop
+        volumes:
+            - ./db/postgres/:/var/lib/postgresql/data/
         networks:
             - laravel
