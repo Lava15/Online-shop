@@ -7,8 +7,6 @@ use App\Domain\Catalog\Models\Category;
 use App\Http\Resources\V1\CategoriesResource;
 use App\Http\Responses\CollectionResponse;
 use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class CategoriesController extends Controller
