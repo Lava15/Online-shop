@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use App\Domain\Client\Models\Cart;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\CartRequest;
 use App\Http\Resources\V1\CartResource;
 use App\Http\Responses\CollectionResponse;
 use App\Http\Responses\MessageResponse;
 use Illuminate\Contracts\Support\Responsable;
+use Modules\Client\Models\Cart;
 use Symfony\Component\HttpFoundation\Response;
 
 class CartController extends Controller

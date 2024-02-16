@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Domain\Catalog\Enums\ProductStatus;
-use App\Domain\Catalog\Models\Category;
-use App\Domain\Catalog\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Catalog\Enums\ProductStatus;
+use Modules\Catalog\Models\Category;
+use Modules\Catalog\Models\Product;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Domain\Catalog\Models\Product>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Catalog\Models\Product>
  */
 class ProductFactory extends Factory
 {

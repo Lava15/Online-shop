@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Domain\Catalog\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Catalog\Models\Category;
+
 class CategoryFactory extends Factory
 {
     protected $model = Category::class;

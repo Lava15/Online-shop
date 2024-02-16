@@ -2,9 +2,9 @@
 
 namespace App\Http\Resources\V1;
 
-use App\Domain\Client\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Client\Models\Cart;
 
 class CartResource extends JsonResource
 {
