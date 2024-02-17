@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\ProductsResource;
-use App\Http\Responses\CollectionResponse;
+use App\Http\Responses\Api\V1\CollectionResponse;
 use Illuminate\Contracts\Support\Responsable;
 use Modules\Catalog\Models\Product;
 use Symfony\Component\HttpFoundation\Response;

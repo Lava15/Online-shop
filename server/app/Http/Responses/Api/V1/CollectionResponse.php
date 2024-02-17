@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Responses;
+namespace App\Http\Responses\Api\V1;
 
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\JsonResponse;
@@ -16,6 +16,10 @@ class CollectionResponse implements Responsable
     {
     }
 
+    /**
+     * @param $request
+     * @return JsonResponse
+     */
     public function toResponse($request): JsonResponse
     {
         return new JsonResponse(
