@@ -14,7 +14,7 @@ class CategoryFactory extends Factory
             'name' => fake()->name,
             'description' => fake()->text,
             'slug' => fake()->slug,
-            'active' => fake()->boolean
+            'is_active' => fake()->boolean
         ];
     }
 }

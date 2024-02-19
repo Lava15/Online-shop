@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Catalog\Enums\ProductStatus;
 
 /**
@@ -29,6 +30,7 @@ use Modules\Catalog\Enums\ProductStatus;
 class Product extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -38,12 +40,14 @@ class Product extends Model
         'category_id',
         'key',
         'title',
+        'sku',
         'slug',
         'short_description',
         'thumb_image',
         'description',
         'price',
         'retail_price',
+        'sail_price',
         'quantity',
         'is_active',
         'status',

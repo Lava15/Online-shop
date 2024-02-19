@@ -7,9 +7,6 @@ use Illuminate\Support\Facades\Schema;
 use Modules\Catalog\Enums\ProductStatus;
 
 return new class extends Migration {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
@@ -21,13 +18,19 @@ return new class extends Migration {
             $table->foreignIdFor(User::class, 'deleted_by');
 
             $table->uuid('key');
+
+            $table->string('sku')->unique();
             $table->string('title');
             $table->string('slug')->unique()->nullable();
             $table->string('short_description')->nullable();
             $table->string('thumb_image')->nullable();
             $table->mediumText('description')->nullable();
+
             $table->unsignedBigInteger('price');
             $table->unsignedBigInteger('retail_price')->default(0);
+            $table->unsignedBigInteger('sail_price')->default(0);
+
+
             $table->unsignedInteger('quantity')->default(0);
 
             $table->boolean('is_active')->default(false);
@@ -39,9 +42,6 @@ return new class extends Migration {
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('products');

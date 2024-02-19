@@ -6,10 +6,16 @@ use Database\Factories\CategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Translatable\HasTranslations;
 
 class Category extends Model
 {
     use HasFactory;
+    use HasTranslations;
+    use SoftDeletes;
+
+    public array $translatable = ['name', 'description'];
 
     /**
      * Indicates if the model should be timestamped.
@@ -24,6 +30,7 @@ class Category extends Model
     protected $fillable = [
         'name',
         'description',
+        'image',
         'slug',
         'active'
     ];
