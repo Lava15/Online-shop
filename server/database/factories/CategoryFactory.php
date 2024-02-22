@@ -8,13 +8,23 @@ use Modules\Catalog\Models\Category;
 class CategoryFactory extends Factory
 {
     protected $model = Category::class;
+
     public function definition(): array
     {
         return [
-            'name' => fake()->name,
-            'description' => fake()->text,
+            'name' => [
+                'ru' => fake()->name,
+                'uz' => fake()->name,
+                'en' => fake()->name,
+            ],
+            'description' => [
+                'ru' => fake()->text,
+                'uz' => fake()->text,
+                'en' => fake()->text,
+            ],
             'slug' => fake()->slug,
-            'is_active' => fake()->boolean
+            'is_active' => fake()->boolean,
+            'order' => fake()->numberBetween(1, 40)
         ];
     }
 }

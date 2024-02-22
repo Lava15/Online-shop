@@ -3,6 +3,7 @@
 namespace Modules\Catalog\Models;
 
 use Database\Factories\CategoryFactory;
+use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -14,7 +15,6 @@ class Category extends Model
     use HasFactory;
     use HasTranslations;
     use SoftDeletes;
-
     public array $translatable = ['name', 'description'];
 
     /**
@@ -32,14 +32,14 @@ class Category extends Model
         'description',
         'image',
         'slug',
-        'active'
+        'is_active'
     ];
     /**
      * The attributes that should be cast to native types.
      * @var string[]
      */
     protected $casts = [
-        'active' => 'boolean'
+        'is_active' => 'boolean'
     ];
 
     public function products(): HasMany

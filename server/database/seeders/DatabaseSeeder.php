@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
         if (app()->environment('local')) {
             $this->call([
                 CategorySeeder::class,
-                ProductSeeder::class,
+//                ProductSeeder::class,
             ]);
         }
     }

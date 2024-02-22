@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('variants', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->index()->constrained()->cascadeOnDelete();
+            $table->foreignId('product_id')->index()->constrained();
 
             $table->string('color');
             $table->string('type');

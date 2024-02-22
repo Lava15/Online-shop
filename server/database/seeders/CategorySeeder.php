@@ -16,6 +16,13 @@ class CategorySeeder extends Seeder
                 'ru' => 'Для хобби',
                 'en' => 'For hobby',
             ],
+            'description' => [
+                'uz' => 'Hobby uchun mahsulotlar',
+                'ru' => 'Товары для хобби',
+                'en' => 'Description of category',
+            ],
+            'slug' => fake()->slug,
+            'is_active' => true,
         ]);
         Category::query()->create([
             'name' => [
@@ -23,6 +30,13 @@ class CategorySeeder extends Seeder
                 'ru' => 'Сезонные продукты',
                 'en' => 'Seasonal goods',
             ],
+            'description' => [
+                'uz' => 'Hobby uchun mahsulotlar',
+                'ru' => 'Товары для хобби',
+                'en' => 'Description of category',
+            ],
+            'slug' => fake()->slug,
+            'is_active' => true,
         ]);
         Category::query()->create([
             'name' => [
@@ -30,6 +44,13 @@ class CategorySeeder extends Seeder
                 'ru' => 'Подарки',
                 'en' => 'Gifts',
             ],
+            'description' => [
+                'uz' => 'Hobby uchun mahsulotlar',
+                'ru' => 'Товары для хобби',
+                'en' => 'Description of category',
+            ],
+            'slug' => fake()->slug,
+            'is_active' => true,
         ]);
         Category::query()->create([
             'name' => [
@@ -37,6 +58,13 @@ class CategorySeeder extends Seeder
                 'ru' => 'Скидки',
                 'en' => 'Sales',
             ],
+            'description' => [
+                'uz' => 'Hobby uchun mahsulotlar',
+                'ru' => 'Товары для хобби',
+                'en' => 'Description of category',
+            ],
+            'slug' => fake()->slug,
+            'is_active' => true,
         ]);
         Category::query()->create([
             'name' => [
@@ -44,6 +72,13 @@ class CategorySeeder extends Seeder
                 'ru' => 'В рассрочку',
                 'en' => 'For credit',
             ],
+            'description' => [
+                'uz' => 'Hobby uchun mahsulotlar',
+                'ru' => 'Товары для хобби',
+                'en' => 'Description of category',
+            ],
+            'slug' => fake()->slug,
+            'is_active' => true,
         ]);
     }
 

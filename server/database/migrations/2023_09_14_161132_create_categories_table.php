@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->string('slug')->unique();
             $table->string('image')->nullable();
             $table->boolean('is_active')->default(false);
-            $table->integer(1)->default(1);
+            $table->integer('order')->default(1);
 
             $table->softDeletes();
         });
