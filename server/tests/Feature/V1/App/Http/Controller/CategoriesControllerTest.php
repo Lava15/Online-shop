@@ -1,6 +1,7 @@
 <?php
 
 use Modules\Catalog\Models\Category;
+use Symfony\Component\HttpFoundation\Response;
 use function Pest\Laravel\assertSoftDeleted;
 use function Pest\Laravel\deleteJson;
 use function Pest\Laravel\getJson;
@@ -30,7 +31,7 @@ it('creates a category', function () {
     ];
 
     postJson('/api/v1/categories', $data)
-        ->assertStatus(200);
+        ->assertStatus(Response::HTTP_CREATED);
 //    assertDatabaseHas(table: 'categories', data: $data);
 })->group('v1-categories');
 
@@ -38,7 +39,6 @@ it('updates a category', function () {
     $category = Category::factory()->create();
 
     $updatingData = [
-
         'name' => [
             'uz' => 'Yangi 2',
             'ru' => 'Новое 2',
@@ -56,7 +56,7 @@ it('updates a category', function () {
 
 
     $response = $this->putJson("/api/v1/categories/{$category->id}", $updatingData);
-    $response->assertStatus(200);
+    $response->assertStatus(Response::HTTP_CREATED);
 //    $this->assertDatabaseHas('categories', $updatingData);
 })->group('v1-categories');
 
@@ -96,6 +96,6 @@ it('deletes a category', function () {
     $category = Category::factory()->create();
 
     deleteJson("/api/v1/categories/{$category->id}")
-        ->assertStatus(200);
+        ->assertStatus(Response::HTTP_NO_CONTENT);
     assertSoftDeleted('categories', ['id' => $category->id]);
 })->group('v1-categories');
