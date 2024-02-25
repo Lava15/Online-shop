@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\ProductsResource;
 use App\Http\Responses\Api\V1\CollectionResponse;
+use App\Http\Responses\Api\V1\SingleRecordResponse;
 use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Support\Facades\Request;
 use Modules\Catalog\Models\Product;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -22,6 +24,28 @@ class ProductsController extends Controller
             ),
             status: Response::HTTP_OK
         );
+    }
 
+    public function show(Product $product): Responsable
+    {
+        return new SingleRecordResponse(
+            data: ProductsResource::make($product),
+            status: Response::HTTP_OK,
+        );
+    }
+
+    public function store(): void
+    {
+        //
+    }
+
+    public function update(): void
+    {
+        //
+    }
+
+    public function delete(): void
+    {
+        //
     }
 }

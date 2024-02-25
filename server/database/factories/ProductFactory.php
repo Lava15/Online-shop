@@ -17,14 +17,14 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'category_id' => Category::factory(),
+            'category_id' => fake()->numberBetween(1,5),
             'created_by' => 1,
             'updated_by' => 1,
             'deleted_by' => 1,
             'key' => fake()->uuid,
+            'sku' => fake()->postcode,
             'title' => fake()->name,
             'slug' => fake()->slug,
-            'short_description' => fake()->text(20),
             'description' => fake()->text(50),
             'price' => fake()->numberBetween(100, 10000) * 1000,
             'retail_price' => fake()->numberBetween(100, 10000) * 970,

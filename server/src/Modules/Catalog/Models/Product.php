@@ -17,7 +17,6 @@ use Modules\Catalog\Enums\ProductStatus;
  * @property string $key
  * @property string $title
  * @property string $slug
- * @property string $short_description
  * @property string $thumb_image
  * @property string $description
  * @property float $price
@@ -42,12 +41,11 @@ class Product extends Model
         'title',
         'sku',
         'slug',
-        'short_description',
         'thumb_image',
         'description',
         'price',
         'retail_price',
-        'sail_price',
+        'sale_price',
         'quantity',
         'is_active',
         'status',
@@ -59,6 +57,7 @@ class Product extends Model
     protected $casts = [
         'is_active' => 'boolean',
         'status' => ProductStatus::class,
+        'manage_stock' => 'boolean'
     ];
 
     public function category(): BelongsTo

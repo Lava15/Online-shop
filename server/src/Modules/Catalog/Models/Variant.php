@@ -10,6 +10,16 @@ class Variant extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'product_id',
+        'inventory_quantity',
+        'color',
+        'type',
+        'brand',
+        'price',
+        'retail_price',
+    ];
+
     /**
      * @return BelongsTo
      */

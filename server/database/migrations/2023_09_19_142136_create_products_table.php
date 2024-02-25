@@ -13,6 +13,7 @@ return new class extends Migration {
             $table->id();
 
             $table->foreignId('category_id')->index()->nullable();
+
             $table->foreignIdFor(User::class, 'created_by');
             $table->foreignIdFor(User::class, 'updated_by');
             $table->foreignIdFor(User::class, 'deleted_by');
@@ -22,13 +23,12 @@ return new class extends Migration {
             $table->string('sku')->unique();
             $table->string('title');
             $table->string('slug')->unique()->nullable();
-            $table->string('short_description')->nullable();
             $table->string('thumb_image')->nullable();
             $table->mediumText('description')->nullable();
 
             $table->unsignedBigInteger('price');
             $table->unsignedBigInteger('retail_price')->default(0);
-            $table->unsignedBigInteger('sail_price')->default(0);
+            $table->unsignedBigInteger('sale_price')->default(0);
 
 
             $table->unsignedInteger('quantity')->default(0);

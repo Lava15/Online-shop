@@ -10,13 +10,12 @@ return new class extends Migration {
         Schema::create('variants', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id')->index()->constrained();
-
+            $table->unsignedInteger('inventory_quantity')->default(0);
             $table->string('color');
             $table->string('type');
             $table->string('brand')->nullable();
             $table->unsignedBigInteger('price');
             $table->unsignedBigInteger('retail_price');
-            $table->date('relesed_date');
             $table->timestamps();
         });
     }
