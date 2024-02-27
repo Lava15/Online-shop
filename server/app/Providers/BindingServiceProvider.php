@@ -6,7 +6,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Modules\Catalog\Interfaces\CategoryServiceInterface;
+use Modules\Catalog\Interfaces\ProductServiceInterface;
 use Modules\Catalog\Services\CategoryService;
+use Modules\Catalog\Services\ProductService;
 
 final class BindingServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,10 @@ final class BindingServiceProvider extends ServiceProvider
         $this->app->bind(
             abstract: CategoryServiceInterface::class,
             concrete: CategoryService::class
+        );
+        $this->app->bind(
+            abstract: ProductServiceInterface::class,
+            concrete: ProductService::class
         );
     }
 }

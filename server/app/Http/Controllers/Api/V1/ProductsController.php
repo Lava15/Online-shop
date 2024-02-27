@@ -8,11 +8,19 @@ use App\Http\Responses\Api\V1\CollectionResponse;
 use App\Http\Responses\Api\V1\SingleRecordResponse;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Support\Facades\Request;
+use Modules\Catalog\Interfaces\ProductServiceInterface;
 use Modules\Catalog\Models\Product;
 use Symfony\Component\HttpFoundation\Response;
 
 class ProductsController extends Controller
 {
+
+    public function __construct(
+        private readonly ProductServiceInterface $productService
+    )
+    {
+    }
+
     /**
      * @return Responsable
      */
