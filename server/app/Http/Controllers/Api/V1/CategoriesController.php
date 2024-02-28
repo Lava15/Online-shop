@@ -10,7 +10,7 @@ use App\Http\Responses\Api\V1\CollectionResponse;
 use App\Http\Responses\Api\V1\MessageResponse;
 use App\Http\Responses\Api\V1\SingleRecordResponse;
 use Illuminate\Contracts\Support\Responsable;
-use Modules\Catalog\DataTransferObjects\CategoriesDto;
+use Modules\Catalog\DTOs\CategoriesDto;
 use Modules\Catalog\Interfaces\CategoryServiceInterface;
 use Modules\Catalog\Models\Category;
 use OpenApi\Annotations as OA;

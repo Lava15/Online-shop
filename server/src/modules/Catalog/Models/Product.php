@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Catalog\Enums\ProductStatus;
+use Modules\Shared\Traits\HasKey;
 
 /**
  * Class Product
@@ -29,6 +30,7 @@ use Modules\Catalog\Enums\ProductStatus;
 class Product extends Model
 {
     use HasFactory;
+    use HasKey;
     use SoftDeletes;
 
     /**
@@ -57,7 +59,6 @@ class Product extends Model
     protected $casts = [
         'is_active' => 'boolean',
         'status' => ProductStatus::class,
-        'manage_stock' => 'boolean'
     ];
 
     public function category(): BelongsTo

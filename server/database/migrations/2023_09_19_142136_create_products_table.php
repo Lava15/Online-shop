@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->foreignIdFor(User::class, 'updated_by');
             $table->foreignIdFor(User::class, 'deleted_by');
 
-            $table->uuid('key');
+            $table->string('key')->unique();
 
             $table->string('sku')->unique();
             $table->string('title');
@@ -34,7 +34,7 @@ return new class extends Migration {
             $table->unsignedInteger('quantity')->default(0);
 
             $table->boolean('is_active')->default(false);
-            $table->string('status')->default(ProductStatus::IN_STOCK->value);
+            $table->string('status');
 
             $table->timestamps();
             $table->softDeletes();

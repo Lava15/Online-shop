@@ -4,7 +4,7 @@ namespace Modules\Catalog\Services;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Catalog\DataTransferObjects\CategoriesDto;
+use Modules\Catalog\DTOs\CategoriesDto;
 use Modules\Catalog\Interfaces\CategoryServiceInterface;
 use Modules\Catalog\Models\Category;
 

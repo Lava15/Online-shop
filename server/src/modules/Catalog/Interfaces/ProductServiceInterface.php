@@ -4,8 +4,8 @@ namespace Modules\Catalog\Interfaces;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Catalog\DataTransferObjects\CategoriesDto;
-use Modules\Catalog\DataTransferObjects\ProductsDto;
+use Modules\Catalog\DTOs\CategoriesDto;
+use Modules\Catalog\DTOs\ProductsDto;
 use Modules\Catalog\Models\Category;
 use Modules\Catalog\Models\Product;
 

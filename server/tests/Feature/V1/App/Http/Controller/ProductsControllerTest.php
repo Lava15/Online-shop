@@ -4,12 +4,14 @@
 use Modules\Catalog\Enums\ProductStatus;
 use Modules\Catalog\Models\Product;
 use Symfony\Component\HttpFoundation\Response;
+use function Pest\Laravel\assertDatabaseCount;
 use function Pest\Laravel\getJson;
 use function Pest\Laravel\postJson;
 
 it('get all products', function () {
 
     getJson('/api/v1/products')
+        ->assertOk()
         ->assertStatus(Response::HTTP_OK);
 
 })->group('v1-products');
@@ -44,4 +46,6 @@ it('creates a product', function () {
     postJson('api/v1/products/', $product)
         ->assertOk()
         ->assertStatus(Response::HTTP_CREATED);
+
+//    assertDatabaseCount('products', 1);
 })->group('v1-products');
