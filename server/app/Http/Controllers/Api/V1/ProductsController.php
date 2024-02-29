@@ -53,17 +53,27 @@ class ProductsController extends Controller
 
         return new MessageResponse(
             message: 'Product created successfully',
-            status: Response::HTTP_CREATED
+            status: Response::HTTP_OK
         );
     }
 
-    public function update(): void
+    public function update(): Responsable
     {
-        //
+
+        return new MessageResponse(
+            message: 'Product updated successfully',
+            status: Response::HTTP_ACCEPTED
+        );
     }
 
-    public function delete(): void
+    public function delete(string $key): Responsable
     {
-        //
+        $this->productService->delete(
+            key: $key
+        );
+        return new MessageResponse(
+            message: 'Product deleted',
+            status: Response::HTTP_NO_CONTENT
+        );
     }
 }

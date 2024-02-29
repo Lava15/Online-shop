@@ -25,7 +25,7 @@ class ProductRequest extends FormRequest
             'sale_price' => ['required'],
             'quantity' => ['required'],
             'is_active' => ['required', 'boolean'],
-            'status' => ['required', 'string'],
+            'status' => ['required', new Enum(ProductStatus::class)],
         ];
     }
 }

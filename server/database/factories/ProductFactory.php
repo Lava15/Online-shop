@@ -21,7 +21,6 @@ class ProductFactory extends Factory
             'created_by' => 1,
             'updated_by' => 1,
             'deleted_by' => 1,
-            'key' => fake()->uuid,
             'sku' => fake()->postcode,
             'title' => fake()->name,
             'slug' => fake()->slug,

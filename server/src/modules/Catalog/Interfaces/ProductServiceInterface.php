@@ -15,5 +15,5 @@ interface ProductServiceInterface
 
     public function update(ProductsDto $dto): int;
 
-    public function delete(Product $category): ?bool;
+    public function delete(string $key): ?bool;
 }

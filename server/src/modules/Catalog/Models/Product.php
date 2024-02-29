@@ -39,6 +39,9 @@ class Product extends Model
      */
     protected $fillable = [
         'category_id',
+        'created_by',
+        'updated_by',
+        'deleted_by',
         'key',
         'title',
         'sku',
@@ -57,6 +60,8 @@ class Product extends Model
      * @var string[]
      */
     protected $casts = [
+        'title' => 'array',
+        'description' => 'array',
         'is_active' => 'boolean',
         'status' => ProductStatus::class,
     ];
