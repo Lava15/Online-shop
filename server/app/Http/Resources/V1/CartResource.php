@@ -9,8 +9,6 @@ use Modules\Client\Models\Cart;
 class CartResource extends JsonResource
 {
     /**
-     * @param Request $request
-     * @return array
      * @property-read Cart $resource
      */
     public function toArray(Request $request): array

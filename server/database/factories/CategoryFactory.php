@@ -24,7 +24,7 @@ class CategoryFactory extends Factory
             ],
             'slug' => fake()->slug,
             'is_active' => fake()->boolean,
-            'order' => fake()->numberBetween(1, 40)
+            'order' => fake()->numberBetween(1, 40),
         ];
     }
 }

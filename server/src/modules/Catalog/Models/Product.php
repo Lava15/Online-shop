@@ -3,12 +3,14 @@
 namespace Modules\Catalog\Models;
 
 use Database\Factories\ProductFactory;
+use Illuminate\Database\Eloquent\Attributes\ScopedBy;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Catalog\Enums\ProductStatus;
+use Modules\Shared\Scopes\ActiveScope;
 use Modules\Shared\Traits\HasKey;
 
 /**
@@ -23,10 +25,10 @@ use Modules\Shared\Traits\HasKey;
  * @property float $price
  * @property float $retail_price
  * @property int $quantity
- * @property bool $is_active
+ * @property bool $active
  * @property ProductStatus $status
- *
  */
+#[ScopedBy([ActiveScope::class])]
 class Product extends Model
 {
     use HasFactory;
@@ -35,6 +37,7 @@ class Product extends Model
 
     /**
      * The attributes that are mass assignable.
+     *
      * @var string[]
      */
     protected $fillable = [
@@ -52,17 +55,19 @@ class Product extends Model
         'retail_price',
         'sale_price',
         'quantity',
-        'is_active',
+        'active',
         'status',
     ];
+
     /**
      * The attributes that should be cast to native types.
+     *
      * @var string[]
      */
     protected $casts = [
         'title' => 'array',
         'description' => 'array',
-        'is_active' => 'boolean',
+        'active' => 'boolean',
         'status' => ProductStatus::class,
     ];
 
@@ -78,7 +83,6 @@ class Product extends Model
 
     /**
      * Create a new factory instance for the model.
-     * @return ProductFactory
      */
     protected static function newFactory(): ProductFactory
     {

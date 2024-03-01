@@ -11,7 +11,7 @@ class CartRequest extends FormRequest
         return [
             'product_id' => ['required', 'exists:products,id'],
             'variant_id' => ['exists:variants,id'],
-            'quantity' => ['required', 'numeric', 'min:1']
+            'quantity' => ['required', 'numeric', 'min:1'],
         ];
     }
 }

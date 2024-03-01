@@ -2,7 +2,6 @@
 
 namespace Modules\Shared\Traits;
 
-
 use Illuminate\Support\Str;
 
 trait HasKey

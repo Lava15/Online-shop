@@ -5,28 +5,22 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\ProductRequest;
 use App\Http\Resources\V1\ProductsResource;
-use App\Http\Responses\Api\V1\CollectionResponse;
-use App\Http\Responses\Api\V1\MessageResponse;
-use App\Http\Responses\Api\V1\SingleRecordResponse;
 use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Support\Facades\Request;
 use Modules\Catalog\DTOs\ProductsDto;
 use Modules\Catalog\Interfaces\ProductServiceInterface;
 use Modules\Catalog\Models\Product;
+use Modules\Shared\Responses\Api\V1\CollectionResponse;
+use Modules\Shared\Responses\Api\V1\MessageResponse;
+use Modules\Shared\Responses\Api\V1\SingleRecordResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class ProductsController extends Controller
 {
-
     public function __construct(
         private readonly ProductServiceInterface $productService
-    )
-    {
+    ) {
     }
 
-    /**
-     * @return Responsable
-     */
     public function index(): Responsable
     {
         return new CollectionResponse(
@@ -71,6 +65,7 @@ class ProductsController extends Controller
         $this->productService->delete(
             key: $key
         );
+
         return new MessageResponse(
             message: 'Product deleted',
             status: Response::HTTP_NO_CONTENT

@@ -10,8 +10,8 @@ use Modules\Catalog\Models\Category;
 
 class CategoryService implements CategoryServiceInterface
 {
-
-    #[\Override] public function store(CategoriesDto $dto): Model|Builder
+    #[\Override]
+    public function store(CategoriesDto $dto): Model|Builder
     {
         return Category::query()->create([
             'parent_id' => $dto->parentId,
@@ -20,11 +20,12 @@ class CategoryService implements CategoryServiceInterface
             'slug' => $dto->slug,
             'image' => $dto->image,
             'is_active' => $dto->isActive,
-            'order' => $dto->order
+            'order' => $dto->order,
         ]);
     }
 
-    #[\Override] public function update(CategoriesDto $dto): int
+    #[\Override]
+    public function update(CategoriesDto $dto): int
     {
         return Category::query()->update([
             'parent_id' => $dto->parentId,
@@ -33,11 +34,12 @@ class CategoryService implements CategoryServiceInterface
             'slug' => $dto->slug,
             'image' => $dto->image,
             'is_active' => $dto->isActive,
-            'order' => $dto->order
+            'order' => $dto->order,
         ]);
     }
 
-    #[\Override] public function delete(Category $category): ?bool
+    #[\Override]
+    public function delete(Category $category): ?bool
     {
         return $category->delete();
     }

@@ -18,13 +18,13 @@ class ProductRequest extends FormRequest
             'sku' => ['required', 'string'],
             'title' => ['required', 'array'],
             'slug' => ['required', 'string'],
-//            'thumb_image' => ['nullable', 'image'],
+            //            'thumb_image' => ['nullable', 'image'],
             'description' => ['required', 'array'],
             'price' => ['required'],
             'retail_price' => ['required'],
             'sale_price' => ['required'],
             'quantity' => ['required'],
-            'is_active' => ['required', 'boolean'],
+            'active' => ['required', 'boolean'],
             'status' => ['required', new Enum(ProductStatus::class)],
         ];
     }

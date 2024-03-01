@@ -10,9 +10,9 @@ class CategoryRequest extends FormRequest
     {
         return [
             'parent_id' => ['nullable', 'integer'],
-            'name' => ['required','array', 'max:100'],
-            'description' => [ 'required','array', 'max:255'],
-            'slug' => ['required','string', 'max:255'],
+            'name' => ['required', 'array', 'max:100'],
+            'description' => ['required', 'array', 'max:255'],
+            'slug' => ['required', 'string', 'max:255'],
             'image' => ['nullable', 'image'],
             'is_active' => ['boolean'],
             'order' => ['integer'],

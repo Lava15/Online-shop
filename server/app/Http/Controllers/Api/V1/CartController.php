@@ -23,7 +23,7 @@ class CartController extends Controller
                 'product_id' => $validated['product_id'],
                 'variant_id' => $validated['variant_id'] ?? null,
             ], [
-                'quantity' => $validated['quantity']
+                'quantity' => $validated['quantity'],
             ]
         );
 
@@ -36,8 +36,9 @@ class CartController extends Controller
     public function update(CartRequest $request, Cart $cart): Responsable
     {
 
-        if ( $request->validated()['quantity'] === 0) {
+        if ($request->validated()['quantity'] === 0) {
             $cart->delete();
+
             return new MessageResponse(
                 message: 'Item removed from cart',
                 status: Response::HTTP_OK
@@ -55,6 +56,7 @@ class CartController extends Controller
     public function view(): Responsable
     {
         $cartItems = Cart::where('user_id', auth()->id())->get();
+
         return new CollectionResponse(
             data: CartResource::collection($cartItems),
             status: Response::HTTP_OK

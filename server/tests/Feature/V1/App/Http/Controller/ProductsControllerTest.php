@@ -1,9 +1,9 @@
 <?php
 
-
 use Modules\Catalog\Enums\ProductStatus;
 use Modules\Catalog\Models\Product;
 use Symfony\Component\HttpFoundation\Response;
+
 use function Pest\Laravel\assertDatabaseCount;
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\deleteJson;
@@ -18,7 +18,6 @@ it('get all products', function () {
         ->assertStatus(Response::HTTP_OK);
 
 })->group('v1-products');
-
 
 it('shows product by id', function () {
     $product = Product::factory()->create();
@@ -50,7 +49,7 @@ it('creates a product', function () {
         'retail_price' => 90_000,
         'sale_price' => 80_000,
         'quantity' => 5,
-        'is_active' => true,
+        'active' => true,
         'status' => ProductStatus::IN_STOCK->value,
     ];
     postJson('api/v1/products', $product)
@@ -61,22 +60,21 @@ it('creates a product', function () {
 })->group('v1-products');
 
 it('updates a product', function () {
-    $product = Product::factory()->create(['title' =>
-        [
-            'uz' => 'uz after update',
-            'ru' => 'ru after update',
-            'en' => 'en after update',
-        ]
+    $product = Product::factory()->create(['title' => [
+        'uz' => 'uz after update',
+        'ru' => 'ru after update',
+        'en' => 'en after update',
+    ],
     ]);
 
     putJson(route('v1:products:update', $product->key), ['title' => 'after update'])
         ->assertStatus(status: Response::HTTP_ACCEPTED);
 
-//    assertDatabaseHas(table: 'products', data: ['title' => [
-//        'uz' => 'uz after update',
-//        'ru' => 'ru after update',
-//        'en' => 'en after update',
-//    ]]);
+    //    assertDatabaseHas(table: 'products', data: ['title' => [
+    //        'uz' => 'uz after update',
+    //        'ru' => 'ru after update',
+    //        'en' => 'en after update',
+    //    ]]);
 
 })->group('v1-products');
 

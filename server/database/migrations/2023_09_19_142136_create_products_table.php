@@ -4,9 +4,9 @@ use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Modules\Catalog\Enums\ProductStatus;
 
-return new class extends Migration {
+return new class extends Migration
+{
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
@@ -30,10 +30,9 @@ return new class extends Migration {
             $table->unsignedBigInteger('retail_price')->default(0);
             $table->unsignedBigInteger('sale_price')->default(0);
 
-
             $table->unsignedInteger('quantity')->default(0);
 
-            $table->boolean('is_active')->default(false);
+            $table->boolean('active')->default(false);
             $table->string('status');
 
             $table->timestamps();

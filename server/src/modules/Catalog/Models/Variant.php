@@ -20,9 +20,6 @@ class Variant extends Model
         'retail_price',
     ];
 
-    /**
-     * @return BelongsTo
-     */
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);

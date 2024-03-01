@@ -17,5 +17,4 @@ class Brand extends Model
         'slug',
         'order',
     ];
-
 }

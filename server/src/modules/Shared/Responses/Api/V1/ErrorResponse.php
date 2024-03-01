@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Responses\Api\V1;
+namespace Modules\Shared\Responses\Api\V1;
 
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\JsonResponse;
@@ -10,17 +10,13 @@ use Throwable;
 class ErrorResponse implements Responsable
 {
     public function __construct(
-        private readonly Throwable    $e,
-        private readonly string       $message,
-        private readonly array        $headers = [],
+        private readonly Throwable $e,
+        private readonly string $message,
+        private readonly array $headers = [],
         private readonly int|Response $status = Response::HTTP_INTERNAL_SERVER_ERROR
-    )
-    {
+    ) {
     }
 
-    /**
-     * @return JsonResponse
-     */
     public function toResponse($request): JsonResponse
     {
         $response = ['message' => $this->message];

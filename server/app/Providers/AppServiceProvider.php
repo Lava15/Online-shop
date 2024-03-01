@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Providers;
@@ -15,6 +16,6 @@ final class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        Model::preventLazyLoading(!$this->app->isProduction());
+        Model::preventLazyLoading(! $this->app->isProduction());
     }
 }

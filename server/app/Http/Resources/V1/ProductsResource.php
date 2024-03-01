@@ -9,10 +9,7 @@ use Modules\Catalog\Models\Product;
 class ProductsResource extends JsonResource
 {
     /**
-     * @param Request $request
-     * @return array
      * @property-read Product $resource
-     *
      */
     public function toArray(Request $request): array
     {
