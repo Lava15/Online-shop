@@ -6,14 +6,14 @@ namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\V1\CategoryRequest;
-use App\Http\Resources\V1\CategoriesResource;
-use App\Http\Responses\Api\V1\CollectionResponse;
-use App\Http\Responses\Api\V1\MessageResponse;
-use App\Http\Responses\Api\V1\SingleRecordResponse;
+use App\Http\Resources\V1\CategoryResource;
 use Illuminate\Contracts\Support\Responsable;
-use Modules\Catalog\DTOs\CategoriesDto;
-use Modules\Catalog\Interfaces\CategoryServiceInterface;
-use Modules\Catalog\Models\Category;
+use Modules\Product\DTOs\CategoriesDto;
+use Modules\Product\Interfaces\CategoryServiceInterface;
+use Modules\Product\Models\Category;
+use Modules\Shared\Responses\Api\V1\CollectionResponse;
+use Modules\Shared\Responses\Api\V1\MessageResponse;
+use Modules\Shared\Responses\Api\V1\SingleRecordResponse;
 use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -51,8 +51,8 @@ class CategoriesController extends Controller
     public function index(): Responsable
     {
         return new CollectionResponse(
-            data: CategoriesResource::collection(
-                Category::query()->paginate(5)
+            data: CategoryResource::collection(
+                Category::query()->with('products')->paginate(5)
             ),
             status: Response::HTTP_OK
         );
@@ -62,7 +62,7 @@ class CategoriesController extends Controller
     {
 
         return new SingleRecordResponse(
-            data: CategoriesResource::make($category),
+            data: CategoryResource::make($category),
             status: Response::HTTP_OK
         );
     }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Catalog\DTOs;
+namespace Modules\Product\DTOs;
 
 use App\Http\Requests\V1\CategoryRequest;
 

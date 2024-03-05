@@ -1,11 +1,9 @@
 <?php
 
-use Modules\Catalog\Enums\ProductStatus;
-use Modules\Catalog\Models\Product;
+use Modules\Product\Enums\ProductStatus;
+use Modules\Product\Models\Product;
 use Symfony\Component\HttpFoundation\Response;
-
 use function Pest\Laravel\assertDatabaseCount;
-use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\deleteJson;
 use function Pest\Laravel\getJson;
 use function Pest\Laravel\postJson;
@@ -61,13 +59,17 @@ it('creates a product', function () {
 
 it('updates a product', function () {
     $product = Product::factory()->create(['title' => [
+        'uz' => 'uz before update',
+        'ru' => 'ru before update',
+        'en' => 'en before update',
+    ],
+    ]);
+    putJson(route('v1:products:update', $product->key), ['title' => [
         'uz' => 'uz after update',
         'ru' => 'ru after update',
         'en' => 'en after update',
-    ],
-    ]);
-
-    putJson(route('v1:products:update', $product->key), ['title' => 'after update'])
+    ]
+    ])
         ->assertStatus(status: Response::HTTP_ACCEPTED);
 
     //    assertDatabaseHas(table: 'products', data: ['title' => [

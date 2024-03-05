@@ -4,7 +4,7 @@ namespace App\Http\Requests\V1;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Enum;
-use Modules\Catalog\Enums\ProductStatus;
+use Modules\Product\Enums\ProductStatus;
 
 class ProductRequest extends FormRequest
 {

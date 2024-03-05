@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Catalog\Interfaces;
+namespace Modules\Product\Interfaces;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Catalog\DTOs\ProductsDto;
+use Modules\Product\DTOs\ProductsDto;
 
 interface ProductServiceInterface
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Catalog\Services;
+namespace Modules\Product\Services;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Catalog\DTOs\CategoriesDto;
-use Modules\Catalog\Interfaces\CategoryServiceInterface;
-use Modules\Catalog\Models\Category;
+use Modules\Product\DTOs\CategoriesDto;
+use Modules\Product\Interfaces\CategoryServiceInterface;
+use Modules\Product\Models\Category;
 
 class CategoryService implements CategoryServiceInterface
 {

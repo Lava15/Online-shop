@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Modules\Catalog\Interfaces\CategoryServiceInterface;
-use Modules\Catalog\Interfaces\ProductServiceInterface;
-use Modules\Catalog\Services\CategoryService;
-use Modules\Catalog\Services\ProductService;
+use Modules\Product\Interfaces\CategoryServiceInterface;
+use Modules\Product\Interfaces\ProductServiceInterface;
+use Modules\Product\Services\CategoryService;
+use Modules\Product\Services\ProductService;
 
 final class BindingServiceProvider extends ServiceProvider
 {

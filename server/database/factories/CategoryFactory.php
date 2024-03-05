@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Modules\Catalog\Models\Category;
+use Modules\Product\Models\Category;
 
 class CategoryFactory extends Factory
 {

@@ -1,8 +1,7 @@
 <?php
 
-use Modules\Catalog\Models\Category;
+use Modules\Product\Models\Category;
 use Symfony\Component\HttpFoundation\Response;
-
 use function Pest\Laravel\assertSoftDeleted;
 use function Pest\Laravel\deleteJson;
 use function Pest\Laravel\getJson;

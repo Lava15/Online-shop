@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Catalog\Models;
+namespace Modules\Product\Models;
 
 use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Attributes\ScopedBy;
@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Catalog\Enums\ProductStatus;
+use Modules\Catalog\Models\Variant;
+use Modules\Product\Enums\ProductStatus;
 use Modules\Shared\Scopes\ActiveScope;
 use Modules\Shared\Traits\HasKey;
 

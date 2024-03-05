@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Catalog\Services;
+namespace Modules\Product\Services;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Catalog\DTOs\ProductsDto;
-use Modules\Catalog\Interfaces\ProductServiceInterface;
-use Modules\Catalog\Models\Product;
+use Modules\Product\DTOs\ProductsDto;
+use Modules\Product\Interfaces\ProductServiceInterface;
+use Modules\Product\Models\Product;
 
 class ProductService implements ProductServiceInterface
 {

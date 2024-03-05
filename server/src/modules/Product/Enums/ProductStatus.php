@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Catalog\Enums;
+namespace Modules\Product\Enums;
 
 enum ProductStatus: string
 {
